@@ -46,10 +46,6 @@ class Octant < Formula
   end
 
   test do
-    kubeconfig = testpath/"config"
-    output = shell_output("#{bin}/octant --kubeconfig #{kubeconfig} 2>&1", 1)
-    assert_match "failed to init cluster client", output
-
     assert_match version.to_s, shell_output("#{bin}/octant version")
   end
 end
